@@ -50,6 +50,7 @@ export const PageTemplate: React.FC = () => {
       >
         <h1 className="font-bold">Dynamic Survey Builder</h1>
         <div className="flex flex-row gap-4 w-full">
+          {/* TODO: make form and list each 50% to avoid layout shift */}
           <AddQuestionForm onSubmit={addNewQuestion} />
           <div className="flex flex-col gap-4">
             <QuestionList
@@ -58,7 +59,6 @@ export const PageTemplate: React.FC = () => {
               onUpdateQuestion={updateQuestion}
             />
             {/* TODO: disable when questions.length === 0 */}
-
             <Button text="Preview Survey" onClick={() => undefined} />
           </div>
         </div>

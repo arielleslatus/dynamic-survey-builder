@@ -17,7 +17,7 @@ export const QuestionList: React.FC<QuestionListProps> = ({
     <div className="flex flex-col gap-8 w-full">
       <BorderedBox>
         {questions.length === 0 && (
-          <p>Use the form below to add questions to your survey.</p>
+          <p>Use the form to add questions to your survey.</p>
         )}
         {questions.map((q, i) => (
           <SavedQuestion

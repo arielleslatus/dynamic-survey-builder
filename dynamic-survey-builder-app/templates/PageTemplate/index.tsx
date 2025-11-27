@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AddQuestionForm } from "../AddQuestionForm";
 import { QuestionList } from "../QuestionList";
+import { Button } from "@/components/Button";
 
 export enum QuestionType {
   FREEFORM_TEXT = "Freeform Text",
@@ -48,12 +49,19 @@ export const PageTemplate: React.FC = () => {
         style={{ width: `calc(100% - 96px)` }}
       >
         <h1 className="font-bold">Dynamic Survey Builder</h1>
-        <QuestionList
-          questions={questions}
-          onRemoveQuestion={removeQuestion}
-          onUpdateQuestion={updateQuestion}
-        />
-        <AddQuestionForm onSubmit={addNewQuestion} />
+        <div className="flex flex-row gap-4 w-full">
+          <AddQuestionForm onSubmit={addNewQuestion} />
+          <div className="flex flex-col gap-4">
+            <QuestionList
+              questions={questions}
+              onRemoveQuestion={removeQuestion}
+              onUpdateQuestion={updateQuestion}
+            />
+            {/* TODO: disable when questions.length === 0 */}
+
+            <Button text="Preview Survey" onClick={() => undefined} />
+          </div>
+        </div>
       </div>
     </div>
   );

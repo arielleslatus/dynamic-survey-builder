@@ -3,7 +3,7 @@ import { Button } from "@/components/Button";
 import { RadioGroup } from "@/components/RadioGroup";
 import { TextInput } from "@/components/TextInput";
 import { Question, QuestionType } from "@/templates/PageTemplate";
-import { EditQuestionForm } from "../EditQuestionForm";
+import { EditQuestionForm } from "../../EditQuestionForm";
 import { useState } from "react";
 import { useQuestionForm } from "@/hooks/useQuestionForm";
 
@@ -47,7 +47,7 @@ export const SavedQuestion: React.FC<SavedQuestionProps> = ({
   return (
     <div className="flex flex-row gap-2 w-full">
       <BorderedBox>
-        <div className="flex gap-2 w-full justify-between">
+        <div className="flex gap-4 w-full justify-between">
           {!isEditMode && (
             <>
               {questionData.type === QuestionType.FREEFORM_TEXT && (
@@ -93,7 +93,7 @@ export const SavedQuestion: React.FC<SavedQuestionProps> = ({
             />
           )}
 
-          <div className="flex flex-row gap-2">
+          <div className="flex flex-col gap-2">
             <Button
               text={isEditMode ? "Save" : "Edit"}
               onClick={onSaveOrEdit}

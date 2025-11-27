@@ -1,7 +1,7 @@
 import { Button } from "@/components/Button";
 import { Question } from "../PageTemplate";
 import { BorderedBox } from "@/components/BorderedBox";
-import { EditQuestionForm } from "../QuestionList/EditQuestionForm";
+import { EditQuestionForm } from "../EditQuestionForm";
 import { useQuestionForm } from "@/hooks/useQuestionForm";
 
 type AddQuestionFormProps = {
@@ -39,7 +39,7 @@ export const AddQuestionForm: React.FC<AddQuestionFormProps> = ({
 
   return (
     <BorderedBox>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 w-full">
         <EditQuestionForm
           id="newQuestion"
           label={label}

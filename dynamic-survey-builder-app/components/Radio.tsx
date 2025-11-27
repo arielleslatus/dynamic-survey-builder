@@ -1,10 +1,9 @@
-import { ChangeEvent } from "react";
-
 export type RadioProps = {
   id: string;
   groupName: string;
   labelText: string;
   value: string;
+  checked: boolean;
   onChange: (newValue: string) => void;
 };
 
@@ -13,6 +12,7 @@ export const Radio: React.FC<RadioProps> = ({
   groupName,
   labelText,
   value,
+  checked,
   onChange,
 }) => {
   return (
@@ -23,6 +23,7 @@ export const Radio: React.FC<RadioProps> = ({
         name={groupName}
         value={value}
         className="border-slate-300 border-solid border-1"
+        checked={checked}
         onChange={(e) => onChange(e.currentTarget.value)}
       />
       <label htmlFor={id}>{labelText}</label>

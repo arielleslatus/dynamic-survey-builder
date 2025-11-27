@@ -24,11 +24,12 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
       </div>
       {radios.map((radio) => (
         <Radio
-          key={radio.id}
-          id={radio.id}
+          key={groupName + radio.id}
+          id={groupName + radio.id}
           groupName={groupName}
           labelText={radio.labelText}
           value={radio.value}
+          checked={radio.checked}
           onChange={onChange}
         />
       ))}

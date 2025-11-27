@@ -7,7 +7,7 @@ type TextInputProps = {
   value?: string;
   isReadOnly?: boolean;
   isRequired?: boolean;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (value: string) => void;
 };
 
 export const TextInput: React.FC<TextInputProps> = ({
@@ -29,7 +29,7 @@ export const TextInput: React.FC<TextInputProps> = ({
         name={name}
         className="border-slate-300 border-solid border-1 rounded-sm px-1"
         value={value}
-        onChange={onChange}
+        onChange={(e) => onChange(e.currentTarget.value)}
         readOnly={isReadOnly}
       />
     </div>

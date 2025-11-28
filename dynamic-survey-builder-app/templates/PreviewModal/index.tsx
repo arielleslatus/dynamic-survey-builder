@@ -23,7 +23,9 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
   onClose,
 }) => {
   const [answers, setAnswers] = useState<Map<number, Answer>>(
-    new Map<number, Answer>()
+    new Map<number, Answer>(
+      questions.map((q) => [q.id, { questionId: q.id, answerValue: "" }])
+    )
   );
   const [responses, setResponses] = useState<SubmittedAnswer[][]>([]);
 
@@ -34,9 +36,15 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
   };
 
   const onSubmit = () => {
+    let isValidResponse: boolean = true;
     const submitted: SubmittedAnswer[] = [];
+
     answers.forEach((value, key) => {
       const question = questions.find((q) => q.id === key);
+      if (question?.isRequired && value.answerValue.length === 0) {
+        isValidResponse = false;
+        return;
+      }
       if (question) {
         submitted.push({
           question: question,
@@ -44,8 +52,15 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
         });
       }
     });
-    setResponses([...responses, submitted]);
-    setAnswers(new Map<number, Answer>());
+
+    if (isValidResponse) {
+      setResponses([...responses, submitted]);
+      setAnswers(
+        new Map<number, Answer>(
+          questions.map((q) => [q.id, { questionId: q.id, answerValue: "" }])
+        )
+      );
+    }
   };
 
   return (

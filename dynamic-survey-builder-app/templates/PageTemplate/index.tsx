@@ -5,19 +5,7 @@ import { AddQuestionForm } from "../AddQuestionForm";
 import { QuestionList } from "../QuestionList";
 import { Button } from "@/components/Button";
 import { PreviewModal } from "../PreviewModal";
-
-export enum QuestionType {
-  FREEFORM_TEXT = "Freeform Text",
-  MULTIPLE_CHOICE = "Multiple Choice",
-}
-
-export type Question = {
-  id: number;
-  label: string;
-  type: QuestionType;
-  isRequired: boolean;
-  multipleChoiceOptions?: string[];
-};
+import { Question } from "@/app/types";
 
 export const PageTemplate: React.FC = () => {
   const [count, setCount] = useState<number>(1);

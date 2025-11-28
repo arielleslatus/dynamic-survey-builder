@@ -1,6 +1,6 @@
 import { BorderedBox } from "@/components/BorderedBox";
-import { Question } from "../PageTemplate";
 import { SavedQuestion } from "./SavedQuestion";
+import { Question } from "@/app/types";
 
 type QuestionListProps = {
   questions: Question[];

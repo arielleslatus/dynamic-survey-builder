@@ -1,7 +1,7 @@
+import { QuestionType } from "@/app/types";
 import { RadioGroup } from "@/components/RadioGroup";
 import { TextInput } from "@/components/TextInput";
 import { MultipleChoiceForm } from "@/templates/EditQuestionForm/MultipleChoiceForm";
-import { QuestionType } from "@/templates/PageTemplate";
 
 type EditQuestionFormProps = {
   id: string;

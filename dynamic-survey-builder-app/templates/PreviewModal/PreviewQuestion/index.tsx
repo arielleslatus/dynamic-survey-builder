@@ -1,6 +1,6 @@
+import { Question, QuestionType } from "@/app/types";
 import { RadioGroup } from "@/components/RadioGroup";
 import { TextInput } from "@/components/TextInput";
-import { Question, QuestionType } from "@/templates/PageTemplate";
 import { useMemo } from "react";
 
 type PreviewQuestionProps = {

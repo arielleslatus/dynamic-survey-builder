@@ -2,10 +2,10 @@ import { BorderedBox } from "@/components/BorderedBox";
 import { Button } from "@/components/Button";
 import { RadioGroup } from "@/components/RadioGroup";
 import { TextInput } from "@/components/TextInput";
-import { Question, QuestionType } from "@/templates/PageTemplate";
 import { EditQuestionForm } from "../../EditQuestionForm";
 import { useState } from "react";
 import { useQuestionForm } from "@/hooks/useQuestionForm";
+import { Question, QuestionType } from "@/app/types";
 
 type SavedQuestionProps = {
   questionData: Question;

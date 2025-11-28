@@ -1,17 +1,7 @@
 import { Button } from "@/components/Button";
 import React, { useState } from "react";
-import { Question } from "../PageTemplate";
 import { PreviewQuestion } from "./PreviewQuestion";
-
-export type Answer = {
-  questionId: number;
-  answerValue: string;
-};
-
-export type SubmittedAnswer = {
-  question: Question;
-  answerValue: string;
-};
+import { Question, Answer, SubmittedAnswer } from "@/app/types";
 
 type PreviewModalProps = {
   questions: Question[];

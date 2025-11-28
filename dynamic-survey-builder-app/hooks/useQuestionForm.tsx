@@ -1,8 +1,7 @@
-import { Question, QuestionType } from "@/templates/PageTemplate";
+import { Question, QuestionType } from "@/app/types";
 import { useState } from "react";
 
 // TODO: make typed return type for this hook
-
 export const useQuestionForm = (question?: Question) => {
   const [label, setLabel] = useState<string>(question?.label || "");
   const [type, setType] = useState<QuestionType | undefined>(

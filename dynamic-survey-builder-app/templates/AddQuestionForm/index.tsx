@@ -1,8 +1,8 @@
 import { Button } from "@/components/Button";
-import { Question } from "../PageTemplate";
 import { BorderedBox } from "@/components/BorderedBox";
 import { EditQuestionForm } from "../EditQuestionForm";
 import { useQuestionForm } from "@/hooks/useQuestionForm";
+import { Question } from "@/app/types";
 
 type AddQuestionFormProps = {
   onSubmit: (newQuestion: Omit<Question, "id">) => void;

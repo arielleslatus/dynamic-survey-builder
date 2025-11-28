@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AddQuestionForm } from "../AddQuestionForm";
 import { QuestionList } from "../QuestionList";
 import { Button } from "@/components/Button";
+import { PreviewModal } from "../PreviewModal";
 
 export enum QuestionType {
   FREEFORM_TEXT = "Freeform Text",
@@ -21,6 +22,8 @@ export type Question = {
 export const PageTemplate: React.FC = () => {
   const [count, setCount] = useState<number>(1);
   const [questions, setQuestions] = useState<Question[]>([]);
+  // TODO: make nicely greyed out background when preview is open
+  const [isPreviewOpen, setIsPreviewOpen] = useState<boolean>(false);
 
   const addNewQuestion = (newQuestion: Omit<Question, "id">) => {
     setQuestions([...questions, { ...newQuestion, id: count }]);
@@ -59,8 +62,17 @@ export const PageTemplate: React.FC = () => {
               onUpdateQuestion={updateQuestion}
             />
             {/* TODO: disable when questions.length === 0 */}
-            <Button text="Preview Survey" onClick={() => undefined} />
+            <Button
+              text="Preview Survey"
+              onClick={() => setIsPreviewOpen(true)}
+            />
           </div>
+          {isPreviewOpen && (
+            <PreviewModal
+              questions={questions}
+              onClose={() => setIsPreviewOpen(false)}
+            />
+          )}
         </div>
       </div>
     </div>

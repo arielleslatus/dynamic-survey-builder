@@ -28,7 +28,7 @@ export const TextInput: React.FC<TextInputProps> = ({
         type="text"
         name={name}
         className="border-slate-300 border-solid border-1 rounded-sm px-1"
-        value={value}
+        value={value ?? ""}
         onChange={(e) => onChange(e.currentTarget.value)}
         readOnly={isReadOnly}
       />

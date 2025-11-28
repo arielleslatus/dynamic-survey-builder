@@ -25,7 +25,7 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
   const [answers, setAnswers] = useState<Map<number, Answer>>(
     new Map<number, Answer>()
   );
-  const [response, setResponse] = useState<SubmittedAnswer[]>([]);
+  const [responses, setResponses] = useState<SubmittedAnswer[][]>([]);
 
   const updateAnswer = (questionId: number, answerValue: string) => {
     const answersCopy = new Map(answers);
@@ -44,7 +44,8 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
         });
       }
     });
-    setResponse(submitted);
+    setResponses([...responses, submitted]);
+    setAnswers(new Map<number, Answer>());
   };
 
   return (
@@ -68,8 +69,18 @@ export const PreviewModal: React.FC<PreviewModalProps> = ({
           ))}
         </div>
         <Button text="Submit" onClick={onSubmit} />
-        {response.length > 0 && (
-          <p>Your Response: {JSON.stringify(response)}</p>
+        <p>Your Survey Definition: </p>
+        <p>{JSON.stringify(questions)}</p>
+        {/* TODO: Improve vertical scroll/overflow for this */}
+        {responses.length > 0 && (
+          <>
+            <p>Your Responses: </p>
+            <>
+              {responses.map((res, i) => (
+                <p key={i}>{JSON.stringify(res)}</p>
+              ))}
+            </>
+          </>
         )}
       </div>
     </div>
